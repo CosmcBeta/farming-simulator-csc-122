@@ -2,40 +2,40 @@
 #include "soil.hpp"
 
 #include <vector>
-#include <string>
 
-Farm::Farm(int rows, int columns) : rows(rows), columns(columns)
+Farm::Farm(int rows, int columns)
+:rows_(rows), columns_(columns)
 {
     for(int i = 0; i < rows; i++)
     {
-        std::vector<Plot *> row;
+        std::vector<Plot*> row;
         for(int j = 0; j < columns; j++)
         {
-            Soil *soil = new Soil();
+            Soil* soil = new Soil();
             row.push_back(soil);
         }
     plots.push_back(row);
     }
 }
 
-int Farm::number_of_rows()
+int Farm::getNumberOfRows() const
 {
-    return rows;
+    return rows_;
 }
 
-int Farm::number_of_columns()
+int Farm::getNumberOfColumns() const
 {
-    return columns;
+    return columns_;
 }
 
-std::string Farm::get_symbol(int row, int column)
+char Farm::getSymbol(int row, int column) const
 {
-    return plots.at(row).at(column)->symbol();
+    return plots.at(row).at(column)->getSymbol();
 }
 
-void Farm::plant(int row, int column, Plot *plot)
+void Farm::plant(int row, int column, Plot* plot)
 {
-    Plot *current_plot = plots.at(row).at(column);
+    Plot* current_plot = plots.at(row).at(column);
     plots.at(row).at(column) = plot;
     delete current_plot;
 }

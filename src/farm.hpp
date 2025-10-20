@@ -2,19 +2,19 @@
 
 #include "plot.hpp"
 
-#include <string>
 #include <vector>
 
 class Farm
 {
 public:
     Farm(int rows, int columns);
-    int number_of_rows();
-    int number_of_columns();
-    std::string get_symbol(int row, int column);
-    void plant(int row, int column, Plot *plot);
+    int getNumberOfRows() const;
+    int getNumberOfColumns() const;
+    char getSymbol(int row, int column) const;
+    void plant(int row, int column, Plot* plot);
+
 private:
-    int rows;
-    int columns;
-    std::vector<std::vector<Plot *>> plots;
+    int rows_;
+    int columns_;
+    std::vector<std::vector<Plot*>> plots;
 };
