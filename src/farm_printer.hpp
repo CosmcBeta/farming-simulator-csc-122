@@ -5,8 +5,8 @@
 class FarmPrinter
 {
 public:
-    FarmPrinter(Farm *farm);
-    std::string pp();
+    FarmPrinter(Farm* farm);
+    std::string prettyPrint();
 private:
-    Farm *farm;
+    Farm* farm_;
 };
