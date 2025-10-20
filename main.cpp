@@ -8,9 +8,9 @@ int main()
 {
     Farm farm(7, 8);
     FarmPrinter printer(&farm);
-    std::cout << printer.pp() << std::endl;
+    std::cout << printer.prettyPrint() << std::endl;
 
     Carrot *carrot = new Carrot();
     farm.plant(1, 2, carrot);
-    std::cout << printer.pp();
+    std::cout << printer.prettyPrint();
 }
