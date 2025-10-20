@@ -1,10 +1,12 @@
 #pragma once
 
-#include <string>
-
 class Plot
 {
 public:
-    virtual std::string symbol() = 0;
+    virtual char getSymbol() const;
     virtual ~Plot() = 0;
+
+protected:
+    Plot(char symbol);
+    char symbol_;
 };
