@@ -1,6 +1,5 @@
 #include "soil.hpp"
 
-std::string Soil::symbol()
-{
-    return ".";
-}
+Soil::Soil()
+: Plot('.')
+{}
