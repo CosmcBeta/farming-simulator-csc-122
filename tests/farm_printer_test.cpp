@@ -10,26 +10,26 @@ TEST_CASE( "it pretty prints a single plot of land" )
 {
     Farm farm(1, 1);
     FarmPrinter printer(&farm);
-    REQUIRE( printer.pp() == ". \n" );
+    REQUIRE( printer.prettyPrint() == ". \n" );
 }
 
 TEST_CASE( "it pretty prints a 1x2 farm" )
 {
     Farm farm(1, 2);
     FarmPrinter printer(&farm);
-    REQUIRE( printer.pp() == ". . \n" );
+    REQUIRE( printer.prettyPrint() == ". . \n" );
 }
 
 TEST_CASE( "it pretty prints a 2x1 farm" )
 {
     Farm farm(2, 1);
     FarmPrinter printer(&farm);
-    REQUIRE( printer.pp() == ". \n. \n" );
+    REQUIRE( printer.prettyPrint() == ". \n. \n" );
 }
 
 TEST_CASE( "it pretty prints a 2x2 farm" )
 {
     Farm farm(2, 2);
     FarmPrinter printer(&farm);
-    REQUIRE( printer.pp() == ". . \n. . \n" );
+    REQUIRE( printer.prettyPrint() == ". . \n. . \n" );
 }

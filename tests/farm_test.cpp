@@ -9,42 +9,42 @@
 TEST_CASE( "it can be initialized with a single plot" )
 {
     Farm farm(1, 1);
-    REQUIRE( farm.number_of_rows() == 1 );
-    REQUIRE( farm.number_of_columns() == 1 );
+    REQUIRE( farm.getNumberOfRows() == 1 );
+    REQUIRE( farm.getNumberOfColumns() == 1 );
 }
 
 TEST_CASE( "it can be initialized as a 1x2 farm" )
 {
     Farm farm(1, 2);
-    REQUIRE( farm.number_of_rows() == 1 );
-    REQUIRE( farm.number_of_columns() == 2 );
+    REQUIRE( farm.getNumberOfRows() == 1 );
+    REQUIRE( farm.getNumberOfColumns() == 2 );
 }
 
 TEST_CASE( "it can be initialized as a 2x1 farm" )
 {
     Farm farm(2, 1);
-    REQUIRE( farm.number_of_rows() == 2 );
-    REQUIRE( farm.number_of_columns() == 1 );
+    REQUIRE( farm.getNumberOfRows() == 2 );
+    REQUIRE( farm.getNumberOfColumns() == 1 );
 }
 
 TEST_CASE( "it returns the symbol for a single soil plot" )
 {
     Farm farm(1, 1);
-    REQUIRE( farm.get_symbol(0, 0) == "." );
+    REQUIRE( farm.getSymbol(0, 0) == '.' );
 }
 
 TEST_CASE( "it returns the symbols for a 1x2 farm" )
 {
     Farm farm(1, 2);
-    REQUIRE( farm.get_symbol(0, 0) == "." );
-    REQUIRE( farm.get_symbol(0, 1) == "." );
+    REQUIRE( farm.getSymbol(0, 0) == '.' );
+    REQUIRE( farm.getSymbol(0, 1) == '.' );
 }
 
 TEST_CASE( "it returns the symbols for a 2x1 farm" )
 {
     Farm farm(2, 1);
-    REQUIRE( farm.get_symbol(0, 0) == "." );
-    REQUIRE( farm.get_symbol(1, 0) == "." );
+    REQUIRE( farm.getSymbol(0, 0) == '.' );
+    REQUIRE( farm.getSymbol(1, 0) == '.' );
 }
 
 TEST_CASE( "it allows us to plant a carrot" )
@@ -52,5 +52,5 @@ TEST_CASE( "it allows us to plant a carrot" )
     Farm farm(1, 1);
     Carrot carrot;
     farm.plant(0, 0, &carrot);
-    REQUIRE( farm.get_symbol(0, 0) == "v" );
+    REQUIRE( farm.getSymbol(0, 0) == 'v' );
 }
