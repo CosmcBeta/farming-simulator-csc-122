@@ -18,7 +18,7 @@ int main()
     {
         ansi_clear();
         std::cout << printer.prettyPrint() << std::endl;
-        std::cin >> playerInput;
+        std::getline(std::cin, playerInput);
 
         if (playerInput == "q")
         {
