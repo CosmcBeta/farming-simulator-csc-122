@@ -3,8 +3,8 @@
 
 #include <vector>
 
-Farm::Farm(int rows, int columns)
-:rows_(rows), columns_(columns)
+Farm::Farm(int rows, int columns, Player* player)
+:rows_(rows), columns_(columns), player_(player)
 {
     for(int i = 0; i < rows; i++)
     {
@@ -30,12 +30,19 @@ int Farm::getNumberOfColumns() const
 
 char Farm::getSymbol(int row, int column) const
 {
-    return plots.at(row).at(column)->getSymbol();
+    if (player_->getRow() == row && player_->getColumn() == column)
+    {
+        return player_->getSymbol();
+    }
+    else
+    {
+        return plots.at(row).at(column)->getSymbol();
+    }
 }
 
 void Farm::plant(int row, int column, Plot* plot)
 {
-    Plot* current_plot = plots.at(row).at(column);
+    Plot* currentPlot = plots.at(row).at(column);
     plots.at(row).at(column) = plot;
-    delete current_plot;
+    delete currentPlot;
 }
