@@ -7,6 +7,6 @@
 
 TEST_CASE( "it returns a v as its when it is a seedling" )
 {
-    Carrot carrot;
+    Carrot carrot {};
     REQUIRE( carrot.getSymbol() == 'v' );
 }

@@ -7,6 +7,6 @@
 
 TEST_CASE( "it returns a dot as its symbol" )
 {
-    Soil soil;
+    Soil soil {};
     REQUIRE( soil.getSymbol() == '.' );
 }
