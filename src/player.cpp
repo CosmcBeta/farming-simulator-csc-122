@@ -18,20 +18,20 @@ void Player::move(Move move)
 {
     switch (move)
     {
-    case Move::Up:
-        row_ -= 1;
-        break;
-    case Move::Down:
-        row_ += 1;
-        break;
-    case Move::Left:
-        column_ -= 1;
-        break;
-    case Move::Right:
-        column_ += 1;
-        break;
-    default:
-        break;
+        case Move::Up:
+            row_ -= 1;
+            break;
+        case Move::Down:
+            row_ += 1;
+            break;
+        case Move::Left:
+            column_ -= 1;
+            break;
+        case Move::Right:
+            column_ += 1;
+            break;
+        default:
+            break;
     }
 }
 

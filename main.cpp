@@ -14,7 +14,7 @@ int main()
 
     std::string playerInput {};
     bool gameInProgress {true};
-    while(gameInProgress)
+    while (gameInProgress)
     {
         ansi_clear();
         std::cout << printer.prettyPrint() << std::endl;

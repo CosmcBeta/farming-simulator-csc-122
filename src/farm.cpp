@@ -8,7 +8,7 @@ Farm::Farm(int rows, int columns, Player* player)
 {
     for(int i = 0; i < rows; i++)
     {
-        std::vector<Plot*> row;
+        std::vector<Plot*> row {};
         for(int j = 0; j < columns; j++)
         {
             Soil* soil = new Soil();

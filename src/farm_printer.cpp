@@ -9,7 +9,7 @@ FarmPrinter::FarmPrinter(Farm *farm)
 
 std::string FarmPrinter::prettyPrint()
 {
-    std::string output = "";
+    std::string output {""};
     for(int i = 0; i < farm_->getNumberOfRows(); i++)
     {
         for(int j = 0; j < farm_->getNumberOfColumns(); j++)
