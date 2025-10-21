@@ -5,7 +5,8 @@ enum class Move
     Up,
     Down,
     Left,
-    Right
+    Right,
+    None
 };
 
 class Player
