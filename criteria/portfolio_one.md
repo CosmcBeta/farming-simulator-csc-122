@@ -8,7 +8,7 @@ console.
 - [x] The farm should be rectangular. You can decide on its dimensions.
 ## Moving
 - [x] Players can move up, down, left, or right on the grid.
-- [ ] When the player tries to move past the boundaries of the farm, there should be some mechanism that keeps them from going off the grid.
+- [x] When the player tries to move past the boundaries of the farm, there should be some mechanism that keeps them from going off the grid.
 ## Ending the Day
 - [ ] You must display the current day in the console.
 	- [ ] We start the game on day one.

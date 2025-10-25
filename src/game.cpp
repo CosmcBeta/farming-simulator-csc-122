@@ -32,15 +32,31 @@ void Game::run()
                 gameInProgress = false;
                 break;
             case 'w':
+                if (player_.getRow() == 0)
+                {
+                    break;
+                }
                 player_.move(Move::Up);
                 break;
             case 'a':
+                if (player_.getColumn() == 0)
+                {
+                    break;
+                }
                 player_.move(Move::Left);
                 break;
             case 's':
+                if (player_.getRow() == farm_.getNumberOfRows() - 1)
+                {
+                    break;
+                }
                 player_.move(Move::Down);
                 break;
             case 'd':
+                if (player_.getColumn() == farm_.getNumberOfColumns() - 1)
+                {
+                    break;
+                }
                 player_.move(Move::Right);
                 break;
             case 'c':
