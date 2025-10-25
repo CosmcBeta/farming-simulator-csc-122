@@ -8,7 +8,7 @@
 #include <iostream>
 
 Game::Game()
-:player_(0, 0, '@'), farm_(7, 8, &player_), printer_(&farm_)
+:player_(0, 0, '@'), farm_(20, 20, &player_), printer_(&farm_)
 {}
 
 void Game::run()
@@ -19,6 +19,7 @@ void Game::run()
     {
         ansi_clear();
         std::cout << printer_.prettyPrint() << std::endl;
+        std::cout << printer_.printKey() << std::endl;
         std::getline(std::cin, playerInput);
 
         if (playerInput.length() != 1)
@@ -26,7 +27,7 @@ void Game::run()
             continue;
         }
 
-        switch (playerInput[0])
+        switch (std::tolower(playerInput[0]))
         {
             case 'q':
                 gameInProgress = false;

@@ -4,7 +4,7 @@ console.
 ## Gameplay
 - [x] You need to implement some way to gracefully end the game.
 - [ ] Users should be able to move, plant a vegetable, harvest vegetables, and end the day.
-- [ ] You must implement a legend that explains the controls of the game. It should include details on how to move, plant a vegetable, harvest vegetables, end the day, and exit the game.
+- [x] You must implement a legend that explains the controls of the game. It should include details on how to move, plant a vegetable, harvest vegetables, end the day, and exit the game.
 - [x] The farm should be rectangular. You can decide on its dimensions.
 ## Moving
 - [x] Players can move up, down, left, or right on the grid.

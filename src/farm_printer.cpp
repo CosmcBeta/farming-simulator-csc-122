@@ -21,3 +21,22 @@ std::string FarmPrinter::prettyPrint()
     }
     return output;
 }
+
+std::string FarmPrinter::printKey()
+{
+    std::string output {""};
+    output += "Controls\n";
+    output += "[W/A/S/D] Move\n";
+    output += "[C] Plant Carrot\n";
+    output += "[H] Harvest\n";
+    output += "[E] End Day\n";
+    output += "[Q] Quit Game\n";
+
+
+    output += "\nInformation\n";
+    output += "Day: 8";//+ farm_.getDay();
+
+
+
+    return output;
+}
