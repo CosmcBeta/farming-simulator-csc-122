@@ -1,3 +1,5 @@
+#pragma once
+
 #include "farm_printer.hpp"
 #include "player.hpp"
 #include "farm.hpp"
