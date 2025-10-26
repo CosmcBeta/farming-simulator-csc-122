@@ -1,6 +1,6 @@
 # Farming Simulator (C++)
 
-This is a template repository for our semester-long portfolio project. Create a new repository on GitHub to house your code. Be sure to make the repository public so that I can view and grade it.
+This is a repository for my semester long protfolio project for CSC 122. Criteria for each portfolio turn in can be found in the `criteria/` directory.
 
 We will use [CMake][cmake] to build executables (e.g. tests, the driver program, the benchmarks, etc.). Additionally, we will use [Catch2][catch2] for unit testing and benchmarking.
 
