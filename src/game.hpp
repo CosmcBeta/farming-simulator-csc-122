@@ -13,4 +13,5 @@ private:
     Player player_;
     Farm farm_;
     FarmPrinter printer_;
+    int dayCounter_;
 };

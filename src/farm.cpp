@@ -1,4 +1,5 @@
 #include "farm.hpp"
+#include "plot.hpp"
 #include "soil.hpp"
 
 #include <vector>
@@ -52,5 +53,28 @@ void Farm::plant(int row, int column, Plot* plot)
     else
     {
         delete plot;
+    }
+}
+
+void Farm::harvest(int row, int column)
+{
+    Plot* currentPlot = plots.at(row).at(column);
+
+    if (currentPlot->isHarvestable())
+    {
+        Soil* soil = new Soil();
+        plots.at(row).at(column) = soil;
+        delete currentPlot;
+    }
+}
+
+void Farm::updatePlants()
+{
+    for (auto& row : plots)
+    {
+        for (auto& plot : row)
+        {
+            plot->update();
+        }
     }
 }

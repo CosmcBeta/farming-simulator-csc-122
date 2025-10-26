@@ -13,6 +13,8 @@ public:
     int getNumberOfColumns() const;
     char getSymbol(int row, int column) const;
     void plant(int row, int column, Plot* plot);
+    void harvest(int row, int column);
+    void updatePlants();
 
 private:
     int rows_;
