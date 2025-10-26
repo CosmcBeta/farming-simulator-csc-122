@@ -19,7 +19,7 @@ void Game::run()
     {
         ansi_clear();
         std::cout << printer_.prettyPrint() << std::endl;
-        std::cout << printer_.printKey() << std::endl;
+        std::cout << printer_.printLegend() << std::endl;
         std::getline(std::cin, playerInput);
 
         if (playerInput.length() != 1)

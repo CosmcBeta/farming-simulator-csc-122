@@ -7,7 +7,7 @@ class FarmPrinter
 public:
     FarmPrinter(Farm* farm);
     std::string prettyPrint();
-    std::string printKey();
+    std::string printLegend();
 private:
     Farm* farm_;
 };

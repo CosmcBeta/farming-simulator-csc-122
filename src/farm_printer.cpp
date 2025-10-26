@@ -22,7 +22,7 @@ std::string FarmPrinter::prettyPrint()
     return output;
 }
 
-std::string FarmPrinter::printKey()
+std::string FarmPrinter::printLegend()
 {
     std::string output {""};
     output += "Controls\n";

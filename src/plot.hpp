@@ -7,6 +7,6 @@ public:
     virtual ~Plot() = 0;
 
 protected:
-    Plot(char symbol);
+    explicit Plot(char symbol);
     char symbol_;
 };

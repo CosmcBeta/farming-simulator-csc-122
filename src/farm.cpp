@@ -43,6 +43,14 @@ char Farm::getSymbol(int row, int column) const
 void Farm::plant(int row, int column, Plot* plot)
 {
     Plot* currentPlot = plots.at(row).at(column);
-    plots.at(row).at(column) = plot;
-    delete currentPlot;
+
+    if (dynamic_cast<Soil*>(currentPlot))
+    {
+        plots.at(row).at(column) = plot;
+        delete currentPlot;
+    }
+    else
+    {
+        delete plot;
+    }
 }
