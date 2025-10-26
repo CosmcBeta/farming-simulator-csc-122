@@ -20,7 +20,7 @@ public:
 private:
     int rows_;
     int columns_;
-    std::vector<std::vector<Plot*>> plots;
+    std::vector<std::vector<Plot*>> plots_;
     Player* player_;
     int dayCounter_;
 };

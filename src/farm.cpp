@@ -15,7 +15,7 @@ Farm::Farm(int rows, int columns, Player* player)
             Soil* soil = new Soil();
             row.push_back(soil);
         }
-    plots.push_back(row);
+    plots_.push_back(row);
     }
 }
 
@@ -37,17 +37,17 @@ char Farm::getSymbol(int row, int column) const
     }
     else
     {
-        return plots.at(row).at(column)->getSymbol();
+        return plots_.at(row).at(column)->getSymbol();
     }
 }
 
 void Farm::plant(int row, int column, Plot* plot)
 {
-    Plot* currentPlot = plots.at(row).at(column);
+    Plot* currentPlot = plots_.at(row).at(column);
 
     if (dynamic_cast<Soil*>(currentPlot))
     {
-        plots.at(row).at(column) = plot;
+        plots_.at(row).at(column) = plot;
         delete currentPlot;
     }
     else
@@ -58,12 +58,12 @@ void Farm::plant(int row, int column, Plot* plot)
 
 void Farm::harvest(int row, int column)
 {
-    Plot* currentPlot = plots.at(row).at(column);
+    Plot* currentPlot = plots_.at(row).at(column);
 
     if (currentPlot->isHarvestable())
     {
         Soil* soil = new Soil();
-        plots.at(row).at(column) = soil;
+        plots_.at(row).at(column) = soil;
         delete currentPlot;
     }
 }
@@ -71,7 +71,7 @@ void Farm::harvest(int row, int column)
 void Farm::updatePlants()
 {
     dayCounter_ += 1;
-    for (auto& row : plots)
+    for (auto& row : plots_)
     {
         for (auto& plot : row)
         {
