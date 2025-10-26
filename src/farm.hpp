@@ -15,10 +15,12 @@ public:
     void plant(int row, int column, Plot* plot);
     void harvest(int row, int column);
     void updatePlants();
+    int getDayCount() const;
 
 private:
     int rows_;
     int columns_;
     std::vector<std::vector<Plot*>> plots;
     Player* player_;
+    int dayCounter_;
 };

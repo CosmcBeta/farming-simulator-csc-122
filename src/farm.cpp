@@ -5,7 +5,7 @@
 #include <vector>
 
 Farm::Farm(int rows, int columns, Player* player)
-:rows_(rows), columns_(columns), player_(player)
+:rows_(rows), columns_(columns), player_(player), dayCounter_(1)
 {
     for(int i = 0; i < rows; i++)
     {
@@ -70,6 +70,7 @@ void Farm::harvest(int row, int column)
 
 void Farm::updatePlants()
 {
+    dayCounter_ += 1;
     for (auto& row : plots)
     {
         for (auto& plot : row)
@@ -77,4 +78,9 @@ void Farm::updatePlants()
             plot->update();
         }
     }
+}
+
+int Farm::getDayCount() const
+{
+    return dayCounter_;
 }

@@ -67,7 +67,6 @@ void Game::run()
                 break;
             }
             case 'e':
-                dayCounter_ += 1;
                 farm_.updatePlants();
                 break;
             case 'h':

@@ -32,9 +32,9 @@ std::string FarmPrinter::printLegend()
     output += "[E] End Day\n";
     output += "[Q] Quit Game\n";
 
-
     output += "\nInformation\n";
-    output += "Day: 8";//+ farm_.getDay();
+    output += "Day: ";
+    output += std::to_string(farm_->getDayCount());
 
 
 
