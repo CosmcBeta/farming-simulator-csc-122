@@ -38,3 +38,21 @@ TEST_CASE( "it pretty prints a 2x2 farm" )
     FarmPrinter printer(&farm);
     REQUIRE( printer.prettyPrint() == "@ . \n. . \n" );
 }
+
+TEST_CASE("prints the legend and information")
+{
+    Player player {};
+    Farm farm( 2, 2, &player);
+    FarmPrinter printer(&farm);
+    REQUIRE( printer.printLegend() == "Controls\n[W/A/S/D] Move\n[C] Plant Carrot\n[H] Harvest\n[E] End Day\n[Q] Quit Game\n\nInformation\nDay: 1" );
+}
+
+TEST_CASE("prints the legend and information with updated day")
+{
+    Player player {};
+    Farm farm( 2, 2, &player);
+    FarmPrinter printer(&farm);
+    REQUIRE( printer.printLegend() == "Controls\n[W/A/S/D] Move\n[C] Plant Carrot\n[H] Harvest\n[E] End Day\n[Q] Quit Game\n\nInformation\nDay: 1" );
+    farm.updatePlants();
+    REQUIRE( printer.printLegend() == "Controls\n[W/A/S/D] Move\n[C] Plant Carrot\n[H] Harvest\n[E] End Day\n[Q] Quit Game\n\nInformation\nDay: 2" );
+}

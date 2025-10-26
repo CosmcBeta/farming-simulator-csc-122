@@ -10,9 +10,9 @@ console.
 - [x] Players can move up, down, left, or right on the grid.
 - [x] When the player tries to move past the boundaries of the farm, there should be some mechanism that keeps them from going off the grid.
 ## Ending the Day
-- [ ] You must display the current day in the console.
-	- [ ] We start the game on day one.
-	- [ ] Every time you end the day, the day number increments by one.
+- [x] You must display the current day in the console.
+	- [x] We start the game on day one.
+	- [x] Every time you end the day, the day number increments by one.
 ## Planting
 - [x] You must implement one vegetable with a seedling and mature state, at a minimum. This vegetable has the following properties:
 	- [x] It must have a name (decided by the developer).
@@ -25,8 +25,8 @@ console.
 - [x] You cannot harvest from a spot that is an “Empty” plot.
 - [x] When you harvest a vegetable, the soil plot should return to its “Empty” state.
 ## General
-- [ ] You must implement a farming simulator that can be played on the console.
+- [x] You must implement a farming simulator that can be played on the console.
 - [x] The game must work cross-platform (e.g. you cannot use conio or window to implement movement).
 - [x] I expect to see consistent theming in the app (e.g. all the plants of one type should look the same, soil plots should be neatly spaced, etc.).
 - [x] Your game must handle random inputs from users. It should never crash.
-- [ ] Your game must be well-tested using the unit tests / driver program structure we have practiced in class.
+- [x] Your game must be well-tested using the unit tests / driver program structure we have practiced in class.

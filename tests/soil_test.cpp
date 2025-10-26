@@ -10,3 +10,34 @@ TEST_CASE( "it returns a dot as its symbol" )
     Soil soil {};
     REQUIRE( soil.getSymbol() == '.' );
 }
+
+TEST_CASE( "it returns a dot as its symbol after updating" )
+{
+    Soil soil {};
+    soil.update();
+    REQUIRE( soil.getSymbol() == '.' );
+}
+
+TEST_CASE( "can't be harvested" )
+{
+    Soil soil {};
+    REQUIRE( !soil.isHarvestable() );
+}
+
+TEST_CASE( "can't be harvested after updating" )
+{
+    Soil soil {};
+    soil.update();
+    REQUIRE( !soil.isHarvestable() );
+}
+
+TEST_CASE( "works properly after many updates" )
+{
+    Soil soil {};
+    soil.update();
+    soil.update();
+    soil.update();
+    soil.update();
+    REQUIRE( soil.getSymbol() == '.' );
+    REQUIRE( !soil.isHarvestable() );
+}
