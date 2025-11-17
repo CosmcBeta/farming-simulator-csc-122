@@ -13,4 +13,7 @@ protected:
     char symbol_;
     int dayCounter_;
     bool canHarvest_;
+
+    int daysToSprout_;
+    int daysToHarvest_;
 };
