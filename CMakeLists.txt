@@ -21,7 +21,9 @@ add_executable(farm_test tests/farm_test.cpp src/farm.cpp src/soil.cpp src/carro
 add_executable(soil_test tests/soil_test.cpp src/soil.cpp src/plot.cpp)
 add_executable(carrot_test tests/carrot_test.cpp src/carrot.cpp src/plot.cpp)
 add_executable(player_test tests/player_test.cpp src/player.cpp src/plot.cpp)
-add_executable(main main.cpp src/farm.cpp src/farm_printer.cpp src/soil.cpp src/carrot.cpp src/player.cpp src/plot.cpp src/ansi_clear.cpp src/game.cpp)
+
+file(GLOB_RECURSE SRC_FILES src/*.cpp)
+add_executable(main main.cpp ${SRC_FILES})
 
 target_link_libraries(farm_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(farm_printer_test PRIVATE Catch2::Catch2WithMain)

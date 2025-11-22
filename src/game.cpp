@@ -4,6 +4,10 @@
 #include "farm_printer.hpp"
 #include "ansi_clear.hpp"
 #include "carrot.hpp"
+#include "lettuce.hpp"
+#include "brussel_sprout.hpp"
+#include "spinach.hpp"
+#include "beet.hpp"
 
 #include <iostream>
 
@@ -62,8 +66,37 @@ void Game::run()
                 break;
             case 'c':
             {
-                Carrot *carrot = new Carrot();
+                Carrot* carrot = new Carrot();
                 farm_.plant(player_.getRow(), player_.getColumn(), carrot);
+                break;
+            }
+            case 'l':
+            {
+                Lettuce* lettuce = new Lettuce();
+                farm_.plant(player_.getRow(), player_.getColumn(), lettuce);
+                break;
+            }
+            case 'j':
+            {
+                Spinach* spinach = new Spinach();
+                farm_.plant(player_.getRow(), player_.getColumn(), spinach);
+                break;
+            }
+            case 'b':
+            {
+                Beet* beet = new Beet();
+                farm_.plant(player_.getRow(), player_.getColumn(), beet);
+                break;
+            }
+            case 'n':
+            {
+                BrusselSprout* brusselSprout = new BrusselSprout();
+                farm_.plant(player_.getRow(), player_.getColumn(), brusselSprout);
+                break;
+            }
+            case 'r':
+            {
+                // water plant
                 break;
             }
             case 'e':

@@ -4,7 +4,7 @@ You are going to build upon the farming simulator game that you started in Portf
 I want to grow more than just carrots on my farm! I want to be able to plant a variety of
 vegetables and watch them grow over time.
 - [ ] As a player, I should be able to plant the seeds outlined in the table below.
-  - [ ] You should update the legend of your game to indicate how to plant each of the vegetables.
+  - [x] You should update the legend of your game to indicate how to plant each of the vegetables.
   - [ ] You are not allowed to plant a seed on top of another existing seed or plant.
 - [ ] Each vegetable is planted as a seed and grows over time.
   - [ ] When a seed is planted in a plot, the plot is represented as “tilled soil”.
@@ -31,7 +31,7 @@ vegetables and watch them grow over time.
 A well-watered plant is a happy plant! I want to be able to water the plants in my garden to
 speed up their growth.
 - [ ] I should be able to water a plant by standing on a plot and using a keyboard command.
-- [ ] You should update the game legend to explain how to water a plant.
+- [x] You should update the game legend to explain how to water a plant.
 - [ ] If I water an empty plot of land (i.e. bare soil), nothing happens.
 - [ ] If I water a plot of land with a vegetable planted on it, it will mature by two days when the day ends rather than just one.
   - [ ] A watered plant should NOT immediately mature in the middle of the day. It should mature by two days at the end of the day.

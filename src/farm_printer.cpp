@@ -29,7 +29,7 @@ std::string FarmPrinter::printLegend()
     output += "[W/A/S/D] Move\n";
     output += "[C] Plant Carrot\n";
     output += "[L] Plant Lettuce\n";
-    output += "[H] Plant Spinach\n";
+    output += "[J] Plant Spinach\n";
     output += "[B] Plant Beet\n";
     output += "[N] Plant Brussel Sprout\n";
     output += "[R] Water Plant\n";
