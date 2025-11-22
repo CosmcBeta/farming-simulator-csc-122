@@ -1,6 +1,5 @@
 # Portfolio 1 Acceptance Criteria
-You are going to build a miniature farming simulator game that can be played in the
-console.
+You are going to build a miniature farming simulator game that can be played in the console.
 ## Gameplay
 - [x] You need to implement some way to gracefully end the game.
 - [x] Users should be able to move, plant a vegetable, harvest vegetables, and end the day.
