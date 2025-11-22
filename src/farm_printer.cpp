@@ -28,6 +28,11 @@ std::string FarmPrinter::printLegend()
     output += "Controls\n";
     output += "[W/A/S/D] Move\n";
     output += "[C] Plant Carrot\n";
+    output += "[L] Plant Lettuce\n";
+    output += "[H] Plant Spinach\n";
+    output += "[B] Plant Beet\n";
+    output += "[N] Plant Brussel Sprout\n";
+    output += "[R] Water Plant\n";
     output += "[H] Harvest\n";
     output += "[E] End Day\n";
     output += "[Q] Quit Game\n";
