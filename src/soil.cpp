@@ -1,5 +1,5 @@
 #include "soil.hpp"
 
 Soil::Soil()
-: Plot('.')
+: Plot('.', 0, 0)
 {}

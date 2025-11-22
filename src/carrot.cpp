@@ -1,7 +1,7 @@
 #include "carrot.hpp"
 
 Carrot::Carrot()
-:Plot('v')
+:Plot('v', 1, 1)
 {}
 
 void Carrot::update()
