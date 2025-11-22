@@ -18,6 +18,7 @@ vegetables and watch them grow over time.
   - [ ] A tilled soil plot, a seedling, and an adult plant should all have distinct symbols.
   - [ ] Tilled soil plots and seedlings can share the same symbol between different plants, if you wish.
   - [ ] The symbols for adult plants must all be distinct between plants.
+
 | Plant | Days to Sprout | Days to Maturity |
 | ----- | -------------- | ---------------- |
 | Carrot | 1 | 1 |
@@ -25,6 +26,7 @@ vegetables and watch them grow over time.
 | Spinach | 2 | 3 |
 | Beet | 2 | 5 |
 | Brussels Sprouts | 5 | 10 |
+
 ## Watering Plants
 A well-watered plant is a happy plant! I want to be able to water the plants in my garden to
 speed up their growth.
