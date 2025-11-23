@@ -1,254 +1,3 @@
-// #include "../src/farm.hpp"
-// #include "../src/carrot.hpp"
-// #include "../src/player.hpp"
-
-// #include <catch2/catch_test_macros.hpp>
-// #include <catch2/benchmark/catch_benchmark.hpp>
-// #include <catch2/benchmark/catch_constructor.hpp>
-// #include <catch2/generators/catch_generators_range.hpp>
-
-// TEST_CASE( "it starts with day counter at 1" )
-// {
-//     Player player {};
-//     Farm farm(1, 1, &player);
-//     REQUIRE( farm.getDayCount() == 1 );
-// }
-
-// TEST_CASE( "it can be initialized with a single plot" )
-// {
-//     Player player {};
-//     Farm farm(1, 1, &player);
-//     REQUIRE( farm.getNumberOfRows() == 1 );
-//     REQUIRE( farm.getNumberOfColumns() == 1 );
-// }
-
-// TEST_CASE( "it returns the symbol for a single soil plot" )
-// {
-//     Player player {};
-//     Farm farm(1, 1, &player);
-//     REQUIRE( farm.getSymbol(0, 0) == '@' );
-// }
-
-// TEST_CASE( "it allows us to plant a carrot" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     Carrot carrot {};
-//     farm.plant(0, 1, &carrot);
-//     REQUIRE( farm.getSymbol(0, 1) == 'v' );
-// }
-
-// TEST_CASE( "it can harvest a single harvestable plant" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     Carrot* carrot = new Carrot();
-//     farm.plant(0, 1, carrot);
-
-//     farm.updatePlants();
-
-//     farm.harvest(0, 1);
-//     REQUIRE( farm.getSymbol(0, 1) == '.' );
-// }
-
-// TEST_CASE( "it increments day counter when updating plants" )
-// {
-//     Player player {};
-//     Farm farm(1, 1, &player);
-//     farm.updatePlants();
-//     REQUIRE( farm.getDayCount() == 2 );
-// }
-
-// TEST_CASE( "it can be initialized as a 1x2 farm" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     REQUIRE( farm.getNumberOfRows() == 1 );
-//     REQUIRE( farm.getNumberOfColumns() == 2 );
-// }
-
-// TEST_CASE( "it can be initialized as a 2x1 farm" )
-// {
-//     Player player {};
-//     Farm farm(2, 1, &player);
-//     REQUIRE( farm.getNumberOfRows() == 2 );
-//     REQUIRE( farm.getNumberOfColumns() == 1 );
-// }
-
-// TEST_CASE( "it returns the symbols for a 1x2 farm" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     REQUIRE( farm.getSymbol(0, 0) == '@' );
-//     REQUIRE( farm.getSymbol(0, 1) == '.' );
-// }
-
-// TEST_CASE( "it returns the symbols for a 2x1 farm" )
-// {
-//     Player player {};
-//     Farm farm(2, 1, &player);
-//     REQUIRE( farm.getSymbol(0, 0) == '@' );
-//     REQUIRE( farm.getSymbol(1, 0) == '.' );
-// }
-
-// TEST_CASE( "it can plant multiple carrots on different plots" )
-// {
-//     Player player {};
-//     Farm farm(2, 2, &player);
-//     Carrot* carrot1 = new Carrot();
-//     Carrot* carrot2 = new Carrot();
-
-//     farm.plant(0, 1, carrot1);
-//     farm.plant(1, 0, carrot2);
-
-//     REQUIRE( farm.getSymbol(0, 1) == 'v' );
-//     REQUIRE( farm.getSymbol(1, 0) == 'v' );
-// }
-
-// TEST_CASE( "it updates all plants when day advances" )
-// {
-//     Player player {};
-//     Farm farm(2, 2, &player);
-//     Carrot* carrot1 = new Carrot();
-//     Carrot* carrot2 = new Carrot();
-
-//     farm.plant(0, 1, carrot1);
-//     farm.plant(1, 0, carrot2);
-//     farm.updatePlants();
-
-//     REQUIRE( farm.getSymbol(0, 1) == 'V' );
-//     REQUIRE( farm.getSymbol(1, 0) == 'V' );
-//     REQUIRE( farm.getDayCount() == 2 );
-// }
-
-// TEST_CASE( "it increments day counter multiple times" )
-// {
-//     Player player {};
-//     Farm farm(1, 1, &player);
-
-//     farm.updatePlants();
-//     farm.updatePlants();
-//     farm.updatePlants();
-
-//     REQUIRE( farm.getDayCount() == 4 );
-// }
-
-// TEST_CASE( "it returns player symbol at player position" )
-// {
-//     Player player {};
-//     Farm farm(3, 3, &player);
-//     REQUIRE( farm.getSymbol(0, 0) == '@' );
-// }
-
-// TEST_CASE( "shows player at players position after planting" )
-// {
-//     Player player {};
-//     Farm farm(1, 1, &player);
-//     Carrot* carrot = new Carrot();
-//     farm.plant(0, 0, carrot);
-//     REQUIRE( farm.getSymbol(0, 0) == '@' );
-// }
-
-// TEST_CASE( "it cannot plant over an existing plant" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     Carrot* carrot1 = new Carrot();
-//     Carrot* carrot2 = new Carrot();
-
-//     farm.plant(0, 1, carrot1);
-//     farm.plant(0, 1, carrot2);
-
-//     REQUIRE( farm.getSymbol(0, 1) == 'v' );
-// }
-
-// TEST_CASE( "it does not harvest non-harvestable plants" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     Carrot* carrot = new Carrot();
-//     farm.plant(0, 1, carrot);
-
-//     farm.harvest(0, 1);
-
-//     REQUIRE( farm.getSymbol(0, 1) == 'v' );
-// }
-
-// TEST_CASE( "it does not harvest empty soil" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-
-//     farm.harvest(0, 1);
-
-//     REQUIRE( farm.getSymbol(0, 1) == '.' );
-// }
-
-// TEST_CASE( "it handles different plot types correctly" )
-// {
-//     Player player {};
-//     Farm farm(1, 3, &player);
-//     Carrot* carrot = new Carrot();
-
-//     farm.plant(0, 1, carrot);
-
-//     REQUIRE( farm.getSymbol(0, 0) == '@' );
-//     REQUIRE( farm.getSymbol(0, 1) == 'v' );
-//     REQUIRE( farm.getSymbol(0, 2) == '.' );
-// }
-
-// TEST_CASE( "it supports complete plant lifecycle" )
-// {
-//     Player player {};
-//     Farm farm(1, 2, &player);
-//     Carrot* carrot = new Carrot();
-
-//     farm.plant(0, 1, carrot);
-//     REQUIRE( farm.getSymbol(0, 1) == 'v' );
-
-//     farm.updatePlants();
-//     farm.updatePlants();
-//     farm.updatePlants();
-
-//     farm.harvest(0, 1);
-//     REQUIRE( farm.getSymbol(0, 1) == '.' );
-// }
-
-// TEST_CASE( "it tracks days accurately through multiple cycles" )
-// {
-//     Player player {};
-//     Farm farm(2, 2, &player);
-
-//     REQUIRE( farm.getDayCount() == 1 );
-
-//     farm.updatePlants();
-//     REQUIRE( farm.getDayCount() == 2 );
-
-//     farm.updatePlants();
-//     REQUIRE( farm.getDayCount() == 3 );
-
-//     farm.updatePlants();
-//     REQUIRE( farm.getDayCount() == 4 );
-// }
-
-// TEST_CASE( "it maintains farm state after multiple operations" )
-// {
-//     Player player {};
-//     Farm farm(2, 2, &player);
-//     Carrot* carrot1 = new Carrot();
-//     Carrot* carrot2 = new Carrot();
-
-//     farm.plant(0, 1, carrot1);
-//     farm.plant(1, 1, carrot2);
-//     farm.updatePlants();
-
-//     REQUIRE( farm.getNumberOfRows() == 2 );
-//     REQUIRE( farm.getNumberOfColumns() == 2 );
-//     REQUIRE( farm.getDayCount() == 2 );
-//     REQUIRE( farm.getSymbol(0, 1) == 'V' );
-//     REQUIRE( farm.getSymbol(1, 1) == 'V' );
-// }
-
 #include "../src/farm.hpp"
 #include "../src/carrot.hpp"
 #include "../src/lettuce.hpp"
@@ -290,7 +39,7 @@ TEST_CASE( "it allows us to plant a carrot" )
     Farm farm(1, 2, &player);
     Carrot carrot {};
     farm.plant(0, 1, &carrot);
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it allows us to plant lettuce" )
@@ -299,7 +48,7 @@ TEST_CASE( "it allows us to plant lettuce" )
     Farm farm(1, 2, &player);
     Lettuce lettuce {};
     farm.plant(0, 1, &lettuce);
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it allows us to plant spinach" )
@@ -308,7 +57,7 @@ TEST_CASE( "it allows us to plant spinach" )
     Farm farm(1, 2, &player);
     Spinach spinach {};
     farm.plant(0, 1, &spinach);
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it allows us to plant beet" )
@@ -317,7 +66,7 @@ TEST_CASE( "it allows us to plant beet" )
     Farm farm(1, 2, &player);
     Beet beet {};
     farm.plant(0, 1, &beet);
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it allows us to plant brussel sprout" )
@@ -326,7 +75,7 @@ TEST_CASE( "it allows us to plant brussel sprout" )
     Farm farm(1, 2, &player);
     BrusselSprout brusselsprout {};
     farm.plant(0, 1, &brusselsprout);
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it can harvest a single harvestable plant" )
@@ -393,8 +142,8 @@ TEST_CASE( "it can plant multiple carrots on different plots" )
     farm.plant(0, 1, carrot1);
     farm.plant(1, 0, carrot2);
 
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
-    REQUIRE( farm.getSymbol(1, 0) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
+    REQUIRE( farm.getSymbol(1, 0) == '~' );
 }
 
 TEST_CASE( "it can plant different vegetables on different plots" )
@@ -409,9 +158,9 @@ TEST_CASE( "it can plant different vegetables on different plots" )
     farm.plant(0, 2, lettuce);
     farm.plant(1, 0, spinach);
 
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
-    REQUIRE( farm.getSymbol(0, 2) == 'v' );
-    REQUIRE( farm.getSymbol(1, 0) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
+    REQUIRE( farm.getSymbol(0, 2) == '~' );
+    REQUIRE( farm.getSymbol(1, 0) == '~' );
 }
 
 TEST_CASE( "it updates all plants when day advances" )
@@ -469,7 +218,7 @@ TEST_CASE( "it cannot plant over an existing plant" )
     farm.plant(0, 1, carrot1);
     farm.plant(0, 1, carrot2);
 
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it does not harvest non-harvestable plants" )
@@ -481,7 +230,7 @@ TEST_CASE( "it does not harvest non-harvestable plants" )
 
     farm.harvest(0, 1);
 
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 }
 
 TEST_CASE( "it does not harvest seedlings" )
@@ -516,7 +265,7 @@ TEST_CASE( "it handles different plot types correctly" )
     farm.plant(0, 1, carrot);
 
     REQUIRE( farm.getSymbol(0, 0) == '@' );
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
     REQUIRE( farm.getSymbol(0, 2) == '.' );
 }
 
@@ -527,7 +276,7 @@ TEST_CASE( "it supports complete plant lifecycle" )
     Carrot* carrot = new Carrot();
 
     farm.plant(0, 1, carrot);
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
 
     farm.updatePlants();
     farm.updatePlants();
@@ -606,6 +355,7 @@ TEST_CASE( "watered lettuce matures faster" )
     farm.plant(0, 1, lettuce);
     farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
 
     REQUIRE( lettuce->isHarvestable() );
@@ -618,6 +368,8 @@ TEST_CASE( "watered spinach matures faster" )
     Spinach* spinach = new Spinach();
 
     farm.plant(0, 1, spinach);
+    farm.waterPlant(0, 1);
+    farm.updatePlants();
     farm.waterPlant(0, 1);
     farm.updatePlants();
     farm.updatePlants();
@@ -634,6 +386,9 @@ TEST_CASE( "watered beet matures faster" )
     farm.plant(0, 1, beet);
     farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
+    farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
     farm.updatePlants();
 
@@ -649,10 +404,17 @@ TEST_CASE( "watered brussel sprout matures faster" )
     farm.plant(0, 1, brusselsprout);
     farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
+    farm.waterPlant(0, 1);
+    farm.updatePlants();
+    farm.waterPlant(0, 1);
     farm.updatePlants();
     farm.updatePlants();
 
@@ -668,7 +430,7 @@ TEST_CASE( "watering does not immediately mature plant" )
     farm.plant(0, 1, carrot);
     farm.waterPlant(0, 1);
 
-    REQUIRE( farm.getSymbol(0, 1) == 'v' );
+    REQUIRE( farm.getSymbol(0, 1) == '~' );
     REQUIRE( !carrot->isHarvestable() );
 }
 
@@ -703,8 +465,8 @@ TEST_CASE( "different vegetables have different mature symbols" )
     farm.plant(1, 0, beet);
     farm.plant(1, 1, brusselsprout);
 
-    // Mature all plants
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < 15; i++)
+    {
         farm.updatePlants();
     }
 
@@ -714,7 +476,6 @@ TEST_CASE( "different vegetables have different mature symbols" )
     char beetSymbol = farm.getSymbol(1, 0);
     char brusselsproutSymbol = farm.getSymbol(1, 1);
 
-    // All symbols should be different from each other
     REQUIRE( carrotSymbol != lettuceSymbol );
     REQUIRE( carrotSymbol != spinachSymbol );
     REQUIRE( carrotSymbol != beetSymbol );
