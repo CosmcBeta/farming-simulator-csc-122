@@ -11,19 +11,25 @@ TEST_CASE( "beet shows tilled soil symbol when first planted" )
     REQUIRE( beet.getSymbol() == TILLED_SOIL_SYMBOL );
 }
 
-TEST_CASE( "beet sprouts into seedling after 1 day" )
+TEST_CASE( "beet sprouts into seedling after 2 day" )
 {
     Beet beet {};
     beet.update();
-    REQUIRE( beet.getSymbol() == 'v' );
+    beet.update();
+    REQUIRE( beet.getSymbol() == 'b' );
 }
 
-TEST_CASE( "beet matures into adult plant after 2 days total" )
+TEST_CASE( "beet matures into adult plant after 7 days total" )
 {
     Beet beet {};
     beet.update();
     beet.update();
-    REQUIRE( beet.getSymbol() == 'V' );
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    REQUIRE( beet.getSymbol() == 'B' );
 }
 
 TEST_CASE( "beet can't be harvested when it is tilled soil" )
@@ -36,12 +42,18 @@ TEST_CASE( "beet can't be harvested when it is a seedling" )
 {
     Beet beet {};
     beet.update();
+    beet.update();
     REQUIRE( !beet.isHarvestable() );
 }
 
 TEST_CASE( "beet can be harvested when it is mature" )
 {
     Beet beet {};
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
     beet.update();
     beet.update();
     REQUIRE( beet.isHarvestable() );
@@ -54,6 +66,14 @@ TEST_CASE( "beet stays mature after many updates" )
     beet.update();
     beet.update();
     beet.update();
-    REQUIRE( beet.getSymbol() == 'V' );
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    beet.update();
+    REQUIRE( beet.getSymbol() == 'B' );
     REQUIRE( beet.isHarvestable() );
 }

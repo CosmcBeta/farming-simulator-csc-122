@@ -11,16 +11,19 @@ TEST_CASE( "lettuce shows tilled soil symbol when first planted" )
     REQUIRE( lettuce.getSymbol() == TILLED_SOIL_SYMBOL );
 }
 
-TEST_CASE( "lettuce sprouts into seedling after 1 day" )
+TEST_CASE( "lettuce sprouts into seedling after 2 day" )
 {
     Lettuce lettuce {};
+    lettuce.update();
     lettuce.update();
     REQUIRE( lettuce.getSymbol() == 'l' );
 }
 
-TEST_CASE( "lettuce matures into adult plant after 2 days total" )
+TEST_CASE( "lettuce matures into adult plant after 4 days total" )
 {
     Lettuce lettuce {};
+    lettuce.update();
+    lettuce.update();
     lettuce.update();
     lettuce.update();
     REQUIRE( lettuce.getSymbol() == 'L' );
@@ -36,12 +39,15 @@ TEST_CASE( "lettuce can't be harvested when it is a seedling" )
 {
     Lettuce lettuce {};
     lettuce.update();
+    lettuce.update();
     REQUIRE( !lettuce.isHarvestable() );
 }
 
 TEST_CASE( "lettuce can be harvested when it is mature" )
 {
     Lettuce lettuce {};
+    lettuce.update();
+    lettuce.update();
     lettuce.update();
     lettuce.update();
     REQUIRE( lettuce.isHarvestable() );
@@ -54,6 +60,9 @@ TEST_CASE( "lettuce stays mature after many updates" )
     lettuce.update();
     lettuce.update();
     lettuce.update();
-    REQUIRE( lettuce.getSymbol() == 'V' );
+    lettuce.update();
+    lettuce.update();
+    lettuce.update();
+    REQUIRE( lettuce.getSymbol() == 'L' );
     REQUIRE( lettuce.isHarvestable() );
 }

@@ -11,19 +11,23 @@ TEST_CASE( "spinach shows tilled soil symbol when first planted" )
     REQUIRE( spinach.getSymbol() == TILLED_SOIL_SYMBOL );
 }
 
-TEST_CASE( "spinach sprouts into seedling after 1 day" )
+TEST_CASE( "spinach sprouts into seedling after 2 day" )
 {
     Spinach spinach {};
     spinach.update();
-    REQUIRE( spinach.getSymbol() == 'v' );
+    spinach.update();
+    REQUIRE( spinach.getSymbol() == 'j' );
 }
 
-TEST_CASE( "spinach matures into adult plant after 2 days total" )
+TEST_CASE( "spinach matures into adult plant after 5 days total" )
 {
     Spinach spinach {};
     spinach.update();
     spinach.update();
-    REQUIRE( spinach.getSymbol() == 'V' );
+    spinach.update();
+    spinach.update();
+    spinach.update();
+    REQUIRE( spinach.getSymbol() == 'J' );
 }
 
 TEST_CASE( "spinach can't be harvested when it is tilled soil" )
@@ -36,12 +40,16 @@ TEST_CASE( "spinach can't be harvested when it is a seedling" )
 {
     Spinach spinach {};
     spinach.update();
+    spinach.update();
     REQUIRE( !spinach.isHarvestable() );
 }
 
 TEST_CASE( "spinach can be harvested when it is mature" )
 {
     Spinach spinach {};
+    spinach.update();
+    spinach.update();
+    spinach.update();
     spinach.update();
     spinach.update();
     REQUIRE( spinach.isHarvestable() );
@@ -54,6 +62,10 @@ TEST_CASE( "spinach stays mature after many updates" )
     spinach.update();
     spinach.update();
     spinach.update();
-    REQUIRE( spinach.getSymbol() == 'V' );
+    spinach.update();
+    spinach.update();
+    spinach.update();
+    spinach.update();
+    REQUIRE( spinach.getSymbol() == 'J' );
     REQUIRE( spinach.isHarvestable() );
 }

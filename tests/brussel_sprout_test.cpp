@@ -11,19 +11,36 @@ TEST_CASE( "brussel sprout shows tilled soil symbol when first planted" )
     REQUIRE( brusselSprout.getSymbol() == TILLED_SOIL_SYMBOL );
 }
 
-TEST_CASE( "brussel sprout sprouts into seedling after 1 day" )
+TEST_CASE( "brussel sprout sprouts into seedling after 5 day" )
 {
     BrusselSprout brusselSprout {};
     brusselSprout.update();
-    REQUIRE( brusselSprout.getSymbol() == 'v' );
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    REQUIRE( brusselSprout.getSymbol() == 'n' );
 }
 
-TEST_CASE( "brussel sprout matures into adult plant after 2 days total" )
+TEST_CASE( "brussel sprout matures into adult plant after 15 days total" )
 {
     BrusselSprout brusselSprout {};
     brusselSprout.update();
     brusselSprout.update();
-    REQUIRE( brusselSprout.getSymbol() == 'V' );
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    REQUIRE( brusselSprout.getSymbol() == 'N' );
 }
 
 TEST_CASE( "brussel sprout can't be harvested when it is tilled soil" )
@@ -36,12 +53,29 @@ TEST_CASE( "brussel sprout can't be harvested when it is a seedling" )
 {
     BrusselSprout brusselSprout {};
     brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
     REQUIRE( !brusselSprout.isHarvestable() );
 }
 
 TEST_CASE( "brussel sprout can be harvested when it is mature" )
 {
     BrusselSprout brusselSprout {};
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
     brusselSprout.update();
     brusselSprout.update();
     REQUIRE( brusselSprout.isHarvestable() );
@@ -54,6 +88,21 @@ TEST_CASE( "brussel sprout stays mature after many updates" )
     brusselSprout.update();
     brusselSprout.update();
     brusselSprout.update();
-    REQUIRE( brusselSprout.getSymbol() == 'V' );
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    brusselSprout.update();
+    REQUIRE( brusselSprout.getSymbol() == 'N' );
     REQUIRE( brusselSprout.isHarvestable() );
 }
