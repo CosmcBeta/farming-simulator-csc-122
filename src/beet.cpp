@@ -1,15 +1,29 @@
 #include "beet.hpp"
 
 Beet::Beet()
-:Plot('b', 2, 5)
+:Plot(TILLED_SOIL_SYMBOL, 2, 5)
 {}
 
 void Beet::update()
 {
-    dayCounter_ += 1;
-    if (dayCounter_ == 1)
+    age_ += 1;
+    if (hasBeenWatered_)
     {
-        symbol_ = 'B';
+        age_ += 1;
+        hasBeenWatered_ = false;
+    }
+
+    if (age_ < daysToSprout_)
+    {
+        symbol_ = TILLED_SOIL_SYMBOL;
+    }
+    else if (age_ < daysToSprout_ + daysToHarvest_)
+    {
+        symbol_ = 'b'; // will add this to some sort of dictionary at some point to allow for easier lookup
+    }
+    else
+    {
+        symbol_ = 'B'; // same with this one, but this is be the same dictionary but set to uppercase via std functions like toupper
         canHarvest_ = true;
     }
 }

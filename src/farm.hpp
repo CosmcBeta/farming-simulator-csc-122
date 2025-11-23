@@ -17,6 +17,8 @@ public:
     void updatePlants();
     int getDayCount() const;
 
+    void waterPlant(int row, int column);
+
 private:
     int rows_;
     int columns_;

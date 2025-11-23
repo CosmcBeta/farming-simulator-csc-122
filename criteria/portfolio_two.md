@@ -3,21 +3,21 @@ You are going to build upon the farming simulator game that you started in Portf
 ## Realistic Vegetables
 I want to grow more than just carrots on my farm! I want to be able to plant a variety of
 vegetables and watch them grow over time.
-- [ ] As a player, I should be able to plant the seeds outlined in the table below.
+- [x] As a player, I should be able to plant the seeds outlined in the table below.
   - [x] You should update the legend of your game to indicate how to plant each of the vegetables.
-  - [ ] You are not allowed to plant a seed on top of another existing seed or plant.
-- [ ] Each vegetable is planted as a seed and grows over time.
-  - [ ] When a seed is planted in a plot, the plot is represented as “tilled soil”.
-  - [ ] After some number of days, the seed in the tilled soil sprouts into a seedling.
-  - [ ] Then, after another number of days, the seed matures into an adult plant.
-- [ ] You can only harvest from an adult plant.
-  - [ ] Nothing happens if you try to harvest from tilled soil or a seedling.
-  - [ ] When you harvest an adult plant, the plot returns to bare soil, just like in Portfolio 1.
-- [ ] You are free to determine what the seeds, seedlings, and mature plants look like according to the following rules.
-  - [ ] When you plant a seed, you should see a "tilled soil" symbol on the plot which represents digging up the soil to plant a seed. As the seed grows, it will convert to a “seedling” symbol and then an “adult plant” symbol.
-  - [ ] A tilled soil plot, a seedling, and an adult plant should all have distinct symbols.
-  - [ ] Tilled soil plots and seedlings can share the same symbol between different plants, if you wish.
-  - [ ] The symbols for adult plants must all be distinct between plants.
+  - [x] You are not allowed to plant a seed on top of another existing seed or plant.
+- [x] Each vegetable is planted as a seed and grows over time.
+  - [x] When a seed is planted in a plot, the plot is represented as “tilled soil”.
+  - [x] After some number of days, the seed in the tilled soil sprouts into a seedling.
+  - [x] Then, after another number of days, the seed matures into an adult plant.
+- [x] You can only harvest from an adult plant.
+  - [x] Nothing happens if you try to harvest from tilled soil or a seedling.
+  - [x] When you harvest an adult plant, the plot returns to bare soil, just like in Portfolio 1.
+- [x] You are free to determine what the seeds, seedlings, and mature plants look like according to the following rules.
+  - [x] When you plant a seed, you should see a "tilled soil" symbol on the plot which represents digging up the soil to plant a seed. As the seed grows, it will convert to a “seedling” symbol and then an “adult plant” symbol.
+  - [x] A tilled soil plot, a seedling, and an adult plant should all have distinct symbols.
+  - [x] Tilled soil plots and seedlings can share the same symbol between different plants, if you wish.
+  - [x] The symbols for adult plants must all be distinct between plants.
 
 | Plant | Days to Sprout | Days to Maturity |
 | ----- | -------------- | ---------------- |

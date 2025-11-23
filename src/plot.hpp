@@ -1,5 +1,7 @@
 #pragma once
 
+constexpr char TILLED_SOIL_SYMBOL {'~'};
+
 class Plot
 {
 public:
@@ -13,7 +15,7 @@ public:
 protected:
     explicit Plot(char symbol, int daysToSprout, int daysToHarvest);
     char symbol_;
-    int dayCounter_;
+    int age_;
     bool canHarvest_;
 
     int daysToSprout_;

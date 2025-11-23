@@ -4,7 +4,7 @@ Plot::~Plot()
 {}
 
 Plot::Plot(char symbol, int daysToSprout, int daysToHarvest)
-:symbol_(symbol), dayCounter_(0), canHarvest_(false),
+:symbol_(symbol), age_(0), canHarvest_(false),
 daysToHarvest_(daysToHarvest), daysToSprout_(daysToSprout),
 hasBeenWatered_(false)
 {}

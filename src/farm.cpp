@@ -84,3 +84,8 @@ int Farm::getDayCount() const
 {
     return dayCounter_;
 }
+
+void Farm::waterPlant(int row, int column)
+{
+
+}

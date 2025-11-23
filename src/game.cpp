@@ -96,7 +96,7 @@ void Game::run()
             }
             case 'r':
             {
-                // water plant
+                farm_.waterPlant(player_.getRow(), player_.getColumn());
                 break;
             }
             case 'e':
