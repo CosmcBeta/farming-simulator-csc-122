@@ -87,5 +87,5 @@ int Farm::getDayCount() const
 
 void Farm::waterPlant(int row, int column)
 {
-
+    plots_.at(row).at(column)->setHasBeenWatered(true);
 }

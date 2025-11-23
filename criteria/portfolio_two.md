@@ -30,10 +30,10 @@ vegetables and watch them grow over time.
 ## Watering Plants
 A well-watered plant is a happy plant! I want to be able to water the plants in my garden to
 speed up their growth.
-- [ ] I should be able to water a plant by standing on a plot and using a keyboard command.
+- [x] I should be able to water a plant by standing on a plot and using a keyboard command.
 - [x] You should update the game legend to explain how to water a plant.
-- [ ] If I water an empty plot of land (i.e. bare soil), nothing happens.
-- [ ] If I water a plot of land with a vegetable planted on it, it will mature by two days when the day ends rather than just one.
-  - [ ] A watered plant should NOT immediately mature in the middle of the day. It should mature by two days at the end of the day.
-- [ ] If I repeatedly water a vegetable, nothing happens on each successive watering on that day.
-  - [ ] In other words, a plant can mature by “two days”, at most.
+- [x] If I water an empty plot of land (i.e. bare soil), nothing happens.
+- [x] If I water a plot of land with a vegetable planted on it, it will mature by two days when the day ends rather than just one.
+  - [x] A watered plant should NOT immediately mature in the middle of the day. It should mature by two days at the end of the day.
+- [x] If I repeatedly water a vegetable, nothing happens on each successive watering on that day.
+  - [x] In other words, a plant can mature by “two days”, at most.
