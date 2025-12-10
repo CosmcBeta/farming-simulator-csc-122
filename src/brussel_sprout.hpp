@@ -5,6 +5,6 @@
 class BrusselSprout : public Plot
 {
 public:
-    BrusselSprout();
-    void update() override;
+	BrusselSprout();
+	void update() override;
 };

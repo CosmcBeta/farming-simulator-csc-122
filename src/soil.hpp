@@ -5,5 +5,5 @@
 class Soil : public Plot
 {
 public:
-    Soil();
+	Soil();
 };

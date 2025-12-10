@@ -5,6 +5,6 @@
 class Carrot : public Plot
 {
 public:
-    Carrot();
-    void update() override;
+	Carrot();
+	void update() override;
 };

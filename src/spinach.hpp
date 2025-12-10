@@ -5,6 +5,6 @@
 class Spinach : public Plot
 {
 public:
-    Spinach();
-    void update() override;
+	Spinach();
+	void update() override;
 };

@@ -5,9 +5,10 @@
 class FarmPrinter
 {
 public:
-    FarmPrinter(Farm* farm);
-    std::string prettyPrint();
-    std::string printLegend();
+	FarmPrinter(Farm* farm);
+	std::string prettyPrint();
+	std::string printLegend();
+
 private:
-    Farm* farm_;
+	Farm* farm_;
 };
