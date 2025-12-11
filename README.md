@@ -16,12 +16,24 @@ cd build
 Once you are inside of the build directory, you can run the following command to build all of the executables for the project:
 
 ```bash
-cmake .. && make
+cmake .. && cmake --build .
 ```
 
 ## Testing the App
 
 Any tests that you define in the `tests/` directory must have a corresponding entry in `CMakeLists.txt`. After you build executables using CMake, you can run the corresponding test files from within the `build/` directory.
+
+You can run all test files at the same time by using the command:
+
+```bash
+ctest
+```
+
+or you can use the verbose mode:
+
+```bash
+ctest -V
+```
 
 ## Running the App
 
