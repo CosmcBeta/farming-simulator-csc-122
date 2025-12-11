@@ -4,8 +4,8 @@
 #include "player.hpp"
 #include "plot.hpp"
 
-#include <vector>
 #include <random>
+#include <vector>
 
 class Farm
 {
@@ -20,7 +20,6 @@ public:
 	int getDayCount() const;
 
 	void waterPlant(int row, int column);
-	void bunnyLocation(int row, int column);
 
 private:
 	int rows_;

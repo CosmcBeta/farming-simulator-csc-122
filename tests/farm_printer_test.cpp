@@ -10,7 +10,7 @@
 TEST_CASE("it pretty prints a single plot of land")
 {
 	Player player {};
-	Farm farm(1, 1, &player);
+	Farm farm(1, 1, &player, false);
 	FarmPrinter printer(&farm);
 	REQUIRE(printer.prettyPrint() == "@ \n");
 }
@@ -18,7 +18,7 @@ TEST_CASE("it pretty prints a single plot of land")
 TEST_CASE("it pretty prints a 1x2 farm")
 {
 	Player player {};
-	Farm farm(1, 2, &player);
+	Farm farm(1, 2, &player, false);
 	FarmPrinter printer(&farm);
 	REQUIRE(printer.prettyPrint() == "@ . \n");
 }
@@ -26,7 +26,7 @@ TEST_CASE("it pretty prints a 1x2 farm")
 TEST_CASE("it pretty prints a 2x1 farm")
 {
 	Player player {};
-	Farm farm(2, 1, &player);
+	Farm farm(2, 1, &player, false);
 	FarmPrinter printer(&farm);
 	REQUIRE(printer.prettyPrint() == "@ \n. \n");
 }
@@ -34,7 +34,7 @@ TEST_CASE("it pretty prints a 2x1 farm")
 TEST_CASE("it pretty prints a 2x2 farm")
 {
 	Player player {};
-	Farm farm(2, 2, &player);
+	Farm farm(2, 2, &player, false);
 	FarmPrinter printer(&farm);
 	REQUIRE(printer.prettyPrint() == "@ . \n. . \n");
 }
@@ -42,7 +42,7 @@ TEST_CASE("it pretty prints a 2x2 farm")
 TEST_CASE("prints the legend and information")
 {
 	Player player {};
-	Farm farm(2, 2, &player);
+	Farm farm(2, 2, &player, false);
 	FarmPrinter printer(&farm);
 	REQUIRE(
 		printer.printLegend() ==
@@ -52,7 +52,7 @@ TEST_CASE("prints the legend and information")
 TEST_CASE("prints the legend and information with updated day")
 {
 	Player player {};
-	Farm farm(2, 2, &player);
+	Farm farm(2, 2, &player, false);
 	FarmPrinter printer(&farm);
 	REQUIRE(
 		printer.printLegend() ==
