@@ -24,18 +24,16 @@ std::string FarmPrinter::printLegend()
 {
 	std::string output {""};
 	output += "Controls\n";
-	output += "[W/A/S/D] Move\n";
-	output += "[C] Plant Carrot\n";
-	output += "[L] Plant Lettuce\n";
-	output += "[J] Plant Spinach\n";
-	output += "[B] Plant Beet\n";
-	output += "[N] Plant Brussel Sprout\n";
-	output += "[R] Water Plant\n";
-	output += "[H] Harvest\n";
-	output += "[E] End Day\n";
-	output += "[Q] Quit Game\n";
+	output += "[W/A/S/D] Move       [C] Plant Carrot    [B] Plant Beet    [L] Plant Lettuce\n";
+	output += "[J] Plant Spinach    [N] Plant Brussel Sprout\n";
+	output += "[R] Water Plant      [H] Harvest         [E] End Day       [Q] Quit Game\n";
 
-	output += "\nInformation\n";
+	output += "\nCharacters:\n";
+	output += "[@] Player    [?] Bunny    [.] Empty    [~] Seedling\n";
+	output +=
+		"[v/V] Carrot    [b/B] Beet    [l/L] Lettuce    [j/J] Spinach    [n/N] Brussel Sprout\n";
+	output += "(lowercase = baby, uppercase = adult)\n";
+
 	output += "Day: ";
 	output += std::to_string(farm_->getDayCount());
 

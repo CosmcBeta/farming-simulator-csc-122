@@ -46,7 +46,7 @@ TEST_CASE("prints the legend and information")
 	FarmPrinter printer(&farm);
 	REQUIRE(
 		printer.printLegend() ==
-		"Controls\n[W/A/S/D] Move\n[C] Plant Carrot\n[L] Plant Lettuce\n[J] Plant Spinach\n[B] Plant Beet\n[N] Plant Brussel Sprout\n[R] Water Plant\n[H] Harvest\n[E] End Day\n[Q] Quit Game\n\nInformation\nDay: 1");
+		"Controls\n[W/A/S/D] Move       [C] Plant Carrot    [B] Plant Beet    [L] Plant Lettuce\n[J] Plant Spinach    [N] Plant Brussel Sprout\n[R] Water Plant      [H] Harvest         [E] End Day       [Q] Quit Game\n\nCharacters:\n[@] Player    [?] Bunny    [.] Empty    [~] Seedling\n[v/V] Carrot    [b/B] Beet    [l/L] Lettuce    [j/J] Spinach    [n/N] Brussel Sprout\n(lowercase = baby, uppercase = adult)\nDay: 1");
 }
 
 TEST_CASE("prints the legend and information with updated day")
@@ -56,9 +56,9 @@ TEST_CASE("prints the legend and information with updated day")
 	FarmPrinter printer(&farm);
 	REQUIRE(
 		printer.printLegend() ==
-		"Controls\n[W/A/S/D] Move\n[C] Plant Carrot\n[L] Plant Lettuce\n[J] Plant Spinach\n[B] Plant Beet\n[N] Plant Brussel Sprout\n[R] Water Plant\n[H] Harvest\n[E] End Day\n[Q] Quit Game\n\nInformation\nDay: 1");
+		"Controls\n[W/A/S/D] Move       [C] Plant Carrot    [B] Plant Beet    [L] Plant Lettuce\n[J] Plant Spinach    [N] Plant Brussel Sprout\n[R] Water Plant      [H] Harvest         [E] End Day       [Q] Quit Game\n\nCharacters:\n[@] Player    [?] Bunny    [.] Empty    [~] Seedling\n[v/V] Carrot    [b/B] Beet    [l/L] Lettuce    [j/J] Spinach    [n/N] Brussel Sprout\n(lowercase = baby, uppercase = adult)\nDay: 1");
 	farm.updatePlants();
 	REQUIRE(
 		printer.printLegend() ==
-		"Controls\n[W/A/S/D] Move\n[C] Plant Carrot\n[L] Plant Lettuce\n[J] Plant Spinach\n[B] Plant Beet\n[N] Plant Brussel Sprout\n[R] Water Plant\n[H] Harvest\n[E] End Day\n[Q] Quit Game\n\nInformation\nDay: 2");
+		"Controls\n[W/A/S/D] Move       [C] Plant Carrot    [B] Plant Beet    [L] Plant Lettuce\n[J] Plant Spinach    [N] Plant Brussel Sprout\n[R] Water Plant      [H] Harvest         [E] End Day       [Q] Quit Game\n\nCharacters:\n[@] Player    [?] Bunny    [.] Empty    [~] Seedling\n[v/V] Carrot    [b/B] Beet    [l/L] Lettuce    [j/J] Spinach    [n/N] Brussel Sprout\n(lowercase = baby, uppercase = adult)\nDay: 2");
 }
