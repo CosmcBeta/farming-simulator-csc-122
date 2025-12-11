@@ -20,6 +20,7 @@ public:
 	int getDayCount() const;
 
 	void waterPlant(int row, int column);
+	void bunnyLocation(int row, int column);
 
 private:
 	int rows_;
@@ -34,5 +35,5 @@ private:
 	std::uniform_int_distribution<int> columnDistribution_;
 	std::uniform_int_distribution<int> edgeDistribution_;
 
-	std::vector<Bunny> bunnies_;
+	Bunny* bunny_;
 };

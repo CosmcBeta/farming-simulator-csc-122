@@ -11,7 +11,7 @@ Farm::Farm(int rows, int columns, Player* player, bool bunnies)
 : rows_(rows), columns_(columns), player_(player), dayCounter_(1), enableBunnies_(bunnies),
   generator_(std::chrono::system_clock::now().time_since_epoch().count()),
   bunnyChanceDistribution_(1, 20), rowDistribution_(1, rows), columnDistribution_(1, columns),
-  edgeDistribution_(1, 4)
+  edgeDistribution_(1, 4), bunny_(nullptr)
 {
 	for (int i = 0; i < rows; i++)
 	{
@@ -35,11 +35,16 @@ int Farm::getNumberOfColumns() const
 	return columns_;
 }
 
+
 char Farm::getSymbol(int row, int column) const
 {
 	if (player_->getRow() == row && player_->getColumn() == column)
 	{
 		return player_->getSymbol();
+	}
+	else if (bunny_->getRow() == row && bunny_->getColumn() == column)
+	{
+	    return bunny_->getSymbol();
 	}
 	else
 	{
@@ -85,7 +90,7 @@ void Farm::updatePlants()
 		}
 	}
 
-	if (!enableBunnies_) return;
+	if (!enableBunnies_ || bunny_) return;
 
 	int bunnyRandomNumber = bunnyChanceDistribution_(generator_); // 1 in 20 (5%)
 	if (bunnyRandomNumber == 1)
@@ -97,25 +102,25 @@ void Farm::updatePlants()
 		case 1:
 		{
 			int randRow = rowDistribution_(generator_);
-			bunnies_.push_back(Bunny(randRow, 0));
+			bunny_ = new Bunny(randRow, 0);
 			break;
 		}
 		case 2:
 		{
 			int randRow = rowDistribution_(generator_);
-			bunnies_.push_back(Bunny(randRow, columns_ - 1));
+			bunny_ = new Bunny(randRow, columns_ - 1);
 			break;
 		}
 		case 3:
 		{
 			int randCol = columnDistribution_(generator_);
-			bunnies_.push_back(Bunny(0, randCol));
+			bunny_ = new Bunny(0, randCol);
 			break;
 		}
 		case 4:
 		{
 			int randCol = columnDistribution_(generator_);
-			bunnies_.push_back(Bunny(rows_ - 1, randCol));
+			bunny_ = new Bunny(rows_ - 1, randCol);
 			break;
 		}
 		default: break;
