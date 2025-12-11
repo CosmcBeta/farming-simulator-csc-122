@@ -173,3 +173,15 @@ void Farm::waterPlant(int row, int column)
 {
 	plots_.at(row).at(column)->setHasBeenWatered(true);
 }
+
+int Farm::getBunnyRow() const
+{
+	if (bunny_) return bunny_->getRow();
+	else return -1;
+}
+
+int Farm::getBunnyCol() const
+{
+	if (bunny_) return bunny_->getColumn();
+	else return -1;
+}

@@ -30,19 +30,37 @@ void Game::run()
 		{
 		case 'q': gameInProgress = false; break;
 		case 'w':
-			if (player_.getRow() == 0) break;
+			if (player_.getRow() == 0 || (player_.getRow() - 1 == farm_.getBunnyRow() &&
+										  player_.getColumn() == farm_.getBunnyCol()))
+			{
+				break;
+			}
 			player_.move(Move::Up);
 			break;
 		case 'a':
-			if (player_.getColumn() == 0) break;
+			if (player_.getColumn() == 0 || (player_.getRow() == farm_.getBunnyRow() &&
+											 player_.getColumn() - 1 == farm_.getBunnyCol()))
+			{
+				break;
+			}
 			player_.move(Move::Left);
 			break;
 		case 's':
-			if (player_.getRow() == farm_.getNumberOfRows() - 1) break;
+			if (player_.getRow() == farm_.getNumberOfRows() - 1 ||
+				(player_.getRow() + 1 == farm_.getBunnyRow() &&
+				 player_.getColumn() == farm_.getBunnyCol()))
+			{
+				break;
+			}
 			player_.move(Move::Down);
 			break;
 		case 'd':
-			if (player_.getColumn() == farm_.getNumberOfColumns() - 1) break;
+			if (player_.getColumn() == farm_.getNumberOfColumns() - 1 ||
+				(player_.getRow() == farm_.getBunnyRow() &&
+				 player_.getColumn() + 1 == farm_.getBunnyCol()))
+			{
+				break;
+			}
 			player_.move(Move::Right);
 			break;
 		case 'c':
