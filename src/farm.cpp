@@ -35,16 +35,15 @@ int Farm::getNumberOfColumns() const
 	return columns_;
 }
 
-
 char Farm::getSymbol(int row, int column) const
 {
 	if (player_->getRow() == row && player_->getColumn() == column)
 	{
 		return player_->getSymbol();
 	}
-	else if (bunny_->getRow() == row && bunny_->getColumn() == column)
+	else if (bunny_ && bunny_->getRow() == row && bunny_->getColumn() == column)
 	{
-	    return bunny_->getSymbol();
+		return bunny_->getSymbol();
 	}
 	else
 	{
@@ -81,6 +80,7 @@ void Farm::harvest(int row, int column)
 
 void Farm::updatePlants()
 {
+	// update plants
 	dayCounter_ += 1;
 	for (auto& row : plots_)
 	{
@@ -90,40 +90,72 @@ void Farm::updatePlants()
 		}
 	}
 
-	if (!enableBunnies_ || bunny_) return;
+	// bunny flag
+	if (!enableBunnies_) return;
 
-	int bunnyRandomNumber = bunnyChanceDistribution_(generator_); // 1 in 20 (5%)
-	if (bunnyRandomNumber == 1)
+	// if a bunny exists
+	if (bunny_)
 	{
-		int edge = edgeDistribution_(generator_); // 1 in 4 (which edge to put it on)
+		// find if its scared
+		const int dr[4] = {-1, 1, 0, 0};
+		const int dc[4] = {0, 0, -1, 1};
+		for (int i = 0; i < 4; i++)
+		{
+			if (player_->getRow() == bunny_->getRow() + dr[i] &&
+				player_->getColumn() == bunny_->getColumn() + dc[i])
+			{
+				bunny_->scared(dr[i], dc[i]);
+			}
+		}
 
-		switch (edge)
+		// make current spot soil
+		Soil* soil = new Soil();
+		plots_.at(bunny_->getRow()).at(bunny_->getColumn()) = soil;
+
+		bunny_->move();
+
+		// if off screen remove bunny
+		if (bunny_->getRow() < 0 || bunny_->getRow() >= rows_ || bunny_->getColumn() < 0 ||
+			bunny_->getColumn() >= columns_)
 		{
-		case 1:
-		{
-			int randRow = rowDistribution_(generator_);
-			bunny_ = new Bunny(randRow, 0);
-			break;
+			bunny_ = nullptr;
 		}
-		case 2:
+	}
+	else
+	{
+		int bunnyRandomNumber = bunnyChanceDistribution_(generator_); // 1 in 20 (5%)
+		if (bunnyRandomNumber == 1)
 		{
-			int randRow = rowDistribution_(generator_);
-			bunny_ = new Bunny(randRow, columns_ - 1);
-			break;
-		}
-		case 3:
-		{
-			int randCol = columnDistribution_(generator_);
-			bunny_ = new Bunny(0, randCol);
-			break;
-		}
-		case 4:
-		{
-			int randCol = columnDistribution_(generator_);
-			bunny_ = new Bunny(rows_ - 1, randCol);
-			break;
-		}
-		default: break;
+			int edge = edgeDistribution_(generator_); // 1 in 4 (which edge to put it on)
+
+			switch (edge)
+			{
+			case 1:
+			{
+				int randRow = rowDistribution_(generator_);
+				bunny_ = new Bunny(randRow, 0);
+				break;
+			}
+			case 2:
+			{
+				int randRow = rowDistribution_(generator_);
+				bunny_ = new Bunny(randRow, columns_ - 1);
+				break;
+			}
+			case 3:
+			{
+				int randCol = columnDistribution_(generator_);
+				bunny_ = new Bunny(0, randCol);
+				break;
+			}
+			case 4:
+			{
+				int randCol = columnDistribution_(generator_);
+				bunny_ = new Bunny(rows_ - 1, randCol);
+				break;
+			}
+			default: break;
+			}
 		}
 	}
 }

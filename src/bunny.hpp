@@ -10,6 +10,7 @@ public:
 	int getColumn() const;
 	void move();
 	char getSymbol() const;
+	void scared(int dr, int dc);
 
 private:
 	int row_;
@@ -17,4 +18,8 @@ private:
 	char symbol_;
 	std::mt19937 generator_;
 	std::uniform_int_distribution<int> distribution_;
+
+	bool scared_;
+	int dr_;
+	int dc_;
 };
