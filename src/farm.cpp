@@ -133,24 +133,28 @@ void Farm::updatePlants()
 			case 1:
 			{
 				int randRow = rowDistribution_(generator_);
+				if (player_->getRow() == randRow && player_->getColumn() == 0) return;
 				bunny_ = new Bunny(randRow, 0);
 				break;
 			}
 			case 2:
 			{
 				int randRow = rowDistribution_(generator_);
+				if (player_->getRow() == randRow && player_->getColumn() == columns_ - 1) return;
 				bunny_ = new Bunny(randRow, columns_ - 1);
 				break;
 			}
 			case 3:
 			{
 				int randCol = columnDistribution_(generator_);
+				if (player_->getRow() == 0 && player_->getColumn() == randCol) return;
 				bunny_ = new Bunny(0, randCol);
 				break;
 			}
 			case 4:
 			{
 				int randCol = columnDistribution_(generator_);
+				if (player_->getRow() == rows_ - 1 && player_->getColumn() == randCol) return;
 				bunny_ = new Bunny(rows_ - 1, randCol);
 				break;
 			}
