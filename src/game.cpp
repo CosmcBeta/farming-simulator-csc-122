@@ -11,7 +11,7 @@
 
 #include <iostream>
 
-Game::Game(): player_(0, 0, '@'), farm_(20, 20, &player_), printer_(&farm_) {}
+Game::Game(): player_(0, 0, '@'), farm_(20, 20, &player_, true), printer_(&farm_) {}
 
 void Game::run()
 {
@@ -86,3 +86,12 @@ void Game::run()
 		}
 	}
 }
+
+// bool Game::canMove() const
+// {
+//     int playerRow = player_.getRow();
+//     int playerCol = player_.getColumn();
+
+//     // farm_.getSymbol(playerRow, playerCol + 1) == '?'
+
+// }

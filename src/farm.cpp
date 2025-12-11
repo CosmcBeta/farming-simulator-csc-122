@@ -1,11 +1,17 @@
 #include "farm.hpp"
+#include "bunny.hpp"
 #include "plot.hpp"
 #include "soil.hpp"
 
+#include <chrono>
+#include <random>
 #include <vector>
 
-Farm::Farm(int rows, int columns, Player* player)
-: rows_(rows), columns_(columns), player_(player), dayCounter_(1)
+Farm::Farm(int rows, int columns, Player* player, bool bunnies)
+: rows_(rows), columns_(columns), player_(player), dayCounter_(1), enableBunnies_(bunnies),
+  generator_(std::chrono::system_clock::now().time_since_epoch().count()),
+  bunnyChanceDistribution_(1, 20), rowDistribution_(1, rows), columnDistribution_(1, columns),
+  edgeDistribution_(1, 4)
 {
 	for (int i = 0; i < rows; i++)
 	{
@@ -76,6 +82,43 @@ void Farm::updatePlants()
 		for (auto& plot : row)
 		{
 			plot->update();
+		}
+	}
+
+	if (!enableBunnies_) return;
+
+	int bunnyRandomNumber = bunnyChanceDistribution_(generator_); // 1 in 20 (5%)
+	if (bunnyRandomNumber == 1)
+	{
+		int edge = edgeDistribution_(generator_); // 1 in 4 (which edge to put it on)
+
+		switch (edge)
+		{
+		case 1:
+		{
+			int randRow = rowDistribution_(generator_);
+			bunnies_.push_back(Bunny(randRow, 0));
+			break;
+		}
+		case 2:
+		{
+			int randRow = rowDistribution_(generator_);
+			bunnies_.push_back(Bunny(randRow, columns_ - 1));
+			break;
+		}
+		case 3:
+		{
+			int randCol = columnDistribution_(generator_);
+			bunnies_.push_back(Bunny(0, randCol));
+			break;
+		}
+		case 4:
+		{
+			int randCol = columnDistribution_(generator_);
+			bunnies_.push_back(Bunny(rows_ - 1, randCol));
+			break;
+		}
+		default: break;
 		}
 	}
 }
