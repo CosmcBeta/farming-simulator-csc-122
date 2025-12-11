@@ -16,6 +16,9 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(Catch2)
 
+enable_testing()
+include(Catch)
+
 add_executable(farm_printer_test tests/farm_printer_test.cpp src/farm_printer.cpp src/farm.cpp src/soil.cpp src/player.cpp src/plot.cpp src/bunny.cpp)
 add_executable(farm_test tests/farm_test.cpp src/farm.cpp src/soil.cpp src/carrot.cpp src/lettuce.cpp src/beet.cpp src/spinach.cpp src/brussel_sprout.cpp src/player.cpp src/plot.cpp src/bunny.cpp)
 add_executable(soil_test tests/soil_test.cpp src/soil.cpp src/plot.cpp)
@@ -38,3 +41,13 @@ target_link_libraries(beet_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(spinach_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(brussel_sprout_test PRIVATE Catch2::Catch2WithMain)
 target_link_libraries(player_test PRIVATE Catch2::Catch2WithMain)
+
+catch_discover_tests(farm_printer_test)
+catch_discover_tests(farm_test)
+catch_discover_tests(soil_test)
+catch_discover_tests(carrot_test)
+catch_discover_tests(lettuce_test)
+catch_discover_tests(beet_test)
+catch_discover_tests(spinach_test)
+catch_discover_tests(brussel_sprout_test)
+catch_discover_tests(player_test)
